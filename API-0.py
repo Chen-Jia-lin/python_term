@@ -107,34 +107,34 @@ def entry_tkx_page() -> 'html':
 
 
 
-@app.route('/dyj', methods=['POST'])
-def entry_dyj_page() -> 'html':
-    return render_template('entry_dyj.html',
-                           the_title='欢迎使用新闻头条查询')
-
-
-@app.route('/search4_dyj', methods=['POST'])
-def do_dyj_search() -> 'html':
-    type = request.form['type']
-    title = '这是查询结果:'
-    results = request3(type)
-    return render_template('results_dyj.html',
-                           the_title=title,
-                           the_phrase=type,
-                           the_results=results,)
-
 @app.route('/dyz', methods=['POST'])
 def entry_dyz_page() -> 'html':
     return render_template('entry_dyz.html',
-                           the_title='欢迎使用成语大全查询')
+                           the_title='欢迎使用新闻头条查询')
 
 
 @app.route('/search4_dyz', methods=['POST'])
 def do_dyz_search() -> 'html':
+    type = request.form['type']
+    title = '这是查询结果:'
+    results = request3(type)
+    return render_template('results_dyz.html',
+                           the_title=title,
+                           the_phrase=type,
+                           the_results=results,)
+
+@app.route('/dyj', methods=['POST'])
+def entry_dyj_page() -> 'html':
+    return render_template('entry_dyj.html',
+                           the_title='欢迎使用成语大全查询')
+
+
+@app.route('/search4_dyj', methods=['POST'])
+def do_dyj_search() -> 'html':
     word = request.form['word']
     title = '这是查询结果:'
     results = request4(word)
-    return render_template('results_dyz.html',
+    return render_template('results_dyj.html',
                            the_title=title,
                            the_phrase=word,
                            the_results=results,)
